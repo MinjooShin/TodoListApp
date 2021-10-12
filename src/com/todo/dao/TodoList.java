@@ -91,7 +91,8 @@ public class TodoList {
 				String description=rs.getString("memo");
 				String due_date=rs.getString("due_date");
 				String current_date=rs.getString("current_date");
-				TodoItem t = new TodoItem(title, category, description, due_date);
+				int ls_completed=rs.getInt("ls_completed");
+				TodoItem t = new TodoItem(title, category, description, due_date, ls_completed);
 				t.setId(id);
 				t.setCurrent_date(current_date);
 				list.add(t);
@@ -117,7 +118,9 @@ public class TodoList {
 				String description=rs.getString("memo");
 				String due_date=rs.getString("due_date");
 				String current_date=rs.getString("current_date");
-				TodoItem t = new TodoItem(title, category, description, due_date);
+				int ls_completed=rs.getInt("ls_completed");
+				TodoItem t = new TodoItem(title, category, description, due_date, ls_completed);
+				t.setLs_completed(ls_completed);
 				t.setId(id);
 				t.setCurrent_date(current_date);
 				list.add(t);
@@ -162,7 +165,8 @@ public class TodoList {
 				String description=rs.getString("memo");
 				String due_date=rs.getString("due_date");
 				String current_date=rs.getString("current_date");
-				TodoItem t = new TodoItem(title, category, description, due_date);
+				int ls_completed=rs.getInt("ls_completed");
+				TodoItem t = new TodoItem(title, category, description, due_date, ls_completed);
 				t.setId(id);
 				t.setCurrent_date(current_date);
 				list.add(t);
@@ -302,7 +306,8 @@ public class TodoList {
 				String description=rs.getString("memo");
 				String due_date=rs.getString("due_date");
 				String current_date=rs.getString("current_date");
-				TodoItem t = new TodoItem(title, category, description, due_date);
+				int ls_completed=rs.getInt("ls_completed");
+				TodoItem t = new TodoItem(title, category, description, due_date, ls_completed);
 				t.setId(id);
 				t.setCurrent_date(current_date);
 				list.add(t);
@@ -328,7 +333,8 @@ public class TodoList {
 				String description=rs.getString("memo");
 				String due_date=rs.getString("due_date");
 				String current_date=rs.getString("current_date");
-				TodoItem t = new TodoItem(title, category, description, due_date);
+				int ls_completed=rs.getInt("ls_completed");
+				TodoItem t = new TodoItem(title, category, description, due_date, ls_completed);
 				t.setId(id);
 				t.setCurrent_date(current_date);
 				list.add(t);

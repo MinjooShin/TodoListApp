@@ -12,7 +12,7 @@ public class TodoItem {
     private String due_date;
     private int ls_completed;
 
-    public TodoItem(String title, String category, String desc, String due_date){
+    public TodoItem(String title, String category, String desc, String due_date, int ls_completed){
     	this.title=title;
         this.desc=desc;
         Date nowdate = new Date();//Date 객체 생성

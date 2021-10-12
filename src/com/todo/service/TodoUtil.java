@@ -17,7 +17,8 @@ public class TodoUtil {
 	
 	public static void createItem(TodoList list) {
 		
-		String title="", desc="", category="", due_date="";
+		String title="", desc="", category="", due_date=""; 
+		int ls_completed=0;
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("\n"
@@ -40,7 +41,7 @@ public class TodoUtil {
 		System.out.println("enter the due_date > ");
 		due_date = sc.nextLine().trim();
 		
-		TodoItem t = new TodoItem(title, category, desc, due_date);
+		TodoItem t = new TodoItem(title, category, desc, due_date, ls_completed);
 		
 		if(list.addItem(t)>0) System.out.println("item added!");
 		
@@ -84,7 +85,8 @@ public class TodoUtil {
 		System.out.println("enter the due_date");
 		String new_due_date = sc.nextLine().trim();
 		
-		TodoItem t = new TodoItem(new_title, new_desc, new_category, new_due_date);
+		int ls_completed=0;
+		TodoItem t = new TodoItem(new_title, new_desc, new_category, new_due_date, ls_completed);
 		t.setId(num);
 		if(l.updateItem(t)>0) System.out.println("item updated!");
 		
@@ -119,8 +121,8 @@ public class TodoUtil {
 				String desc=st.nextToken();
 				String current_date=st.nextToken();
 				String due_date=st.nextToken();
-				
-				TodoItem item = new TodoItem(title, category, desc, due_date);
+				int ls_completed=Integer.parseInt(st.nextToken());
+				TodoItem item = new TodoItem(title, category, desc, due_date, ls_completed);
 				item.setId(id);
 				System.out.println(item.toString());
 			}
@@ -135,10 +137,8 @@ public class TodoUtil {
 	public static void findItem(TodoList l, String choice) {
 		String find_str="";
 		find_str=choice.substring(5);
-		int count=0;
 		int cnt_sum=0;
 		for(TodoItem item: l.getListforfind(find_str)) {
-			count++;
 			if(item.getCategory().contains(find_str)||item.getTitle().contains(find_str)||item.getDesc().contains(find_str)) {
 				System.out.println(item.toString());
 				cnt_sum++;
@@ -168,10 +168,8 @@ public class TodoUtil {
 	}
 
 	public static void listAll(TodoList l, String orderby, int ordering) {
-		int count=0;
 		System.out.printf("[전체 목록, 총 %d개]\n", l.getCount());
 		for(TodoItem item:l.getOrderedList(orderby, ordering)) {
-			count++;
 			System.out.println(item.toString());
 		}
 	}
